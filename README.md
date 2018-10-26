@@ -1,6 +1,6 @@
 # Practice Code Repository
 
-This repository contains all of my C# code, all containing my solutions for puzzles/challenges i've stumbled upon down. Hopefuly to demonstrate my development/journey with programming. 
+This repository contains all of my C# code, all containing my solutions for puzzles/challenges i've stumbled upon. Hopefully, to clearly demonstrate my development/journey with programming. 
 
 ## Authors
 
