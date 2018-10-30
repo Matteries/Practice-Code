@@ -17,7 +17,7 @@ namespace CreditCardProgram
                 ReversedCardNumber(cardNumber);
         }
 
-        private IEnumerable<char> ReversedCardNumber(string cardNumber)
+        public IEnumerable<char> ReversedCardNumber(string cardNumber)
         {
             return cardNumber.Reverse();
         }
@@ -41,7 +41,7 @@ namespace CreditCardProgram
             Console.WriteLine(CreditCardOutput(_oddValue + _evenValue));
         }
 
-        private int GetEvenValue(string inputNumber)
+        public int GetEvenValue(string inputNumber)
         {
             var doubledValue = int.Parse(inputNumber) * 2;
             var evenTotal = doubledValue.ToString().Sum(c => c - '0');
@@ -52,7 +52,7 @@ namespace CreditCardProgram
         {
             return value % 2 != 0;
         }
-        private bool CreditCardOutput(int value)
+        public bool CreditCardOutput(int value)
         {
             if (value % 10 == 0)
 
