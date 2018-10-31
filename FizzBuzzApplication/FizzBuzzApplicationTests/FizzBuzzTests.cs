@@ -17,17 +17,41 @@ namespace FizzBuzzApplicationTests
 
         [Test]
         [TestCase(3, false)]
-        [TestCase(4, true)]
+        [TestCase(15, true)]
+        [TestCase(120, true)]
         [TestCase(8, false)]
-        [TestCase(11478, true)]
+        [TestCase(15015, true)]
         public void GivenOutput_IsOfValue_FizzBuzz(int testInput, bool expectedOutput)
         {
-            //Arrange
-
-            //Act
             var fizzbuzzOutput = _sut.IsDivisibleByFifteen(testInput);
 
-            //Assert
+            Assert.That(expectedOutput, Is.EqualTo(fizzbuzzOutput));
+        }
+
+        [Test]
+        [TestCase(22, false)]
+        [TestCase(3, true)]
+        [TestCase(8, false)]
+        [TestCase(30, true)]
+        [TestCase(3003, true)]
+        public void GivenOutput_IsOfValue_Fizz(int testInput, bool expectedOutput)
+        {
+            var fizzbuzzOutput = _sut.IsDivisibleByThree(testInput);
+
+            Assert.That(expectedOutput, Is.EqualTo(fizzbuzzOutput));
+        }
+
+        [Test]
+        [TestCase(3, false)]
+        [TestCase(5, true)]
+        [TestCase(25, true)]
+        [TestCase(8, false)]
+        [TestCase(10005, true)]
+        public void GivenOutput_IsOfValue_Buzz(int testInput, bool expectedOutput)
+        {
+
+            var fizzbuzzOutput = _sut.IsDivisibleByFive(testInput);
+
             Assert.That(expectedOutput, Is.EqualTo(fizzbuzzOutput));
         }
     }
