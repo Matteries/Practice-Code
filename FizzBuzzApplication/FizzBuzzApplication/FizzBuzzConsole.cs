@@ -7,12 +7,20 @@ namespace FizzBuzzApplication
         private readonly int _fizz = 3;
         private readonly int _buzz = 5;
         private readonly int _fizzbuzz = 15;
+        private readonly IConsoleWriter _consoleWriter;
+
+        public FizzBuzzConsole(IConsoleWriter consoleWriter)
+        {
+            if (consoleWriter == null) throw new ArgumentNullException(nameof(consoleWriter));
+
+            _consoleWriter = consoleWriter;
+        }
 
         public void FizzBuzzStarter()
         {
             for (var i = 1; i <= 100; i++)
             {
-                Console.WriteLine("\n_____\n{0}", i);
+                _consoleWriter.WriteHost($"\n_____\n{i}");
 
                 IsDivisibleByFifteen(i);
                 IsDivisibleByFive(i);
@@ -41,11 +49,11 @@ namespace FizzBuzzApplication
             return isDivisibleByThree;
         }
 
-        private void ConsoleChecker(bool check, string text)
+        private void ConsoleChecker(bool check, string fizzbuzztext)
         {
             if (check)
             {
-                Console.WriteLine(text);
+                _consoleWriter.WriteHost(fizzbuzztext);
             }
         }
     }

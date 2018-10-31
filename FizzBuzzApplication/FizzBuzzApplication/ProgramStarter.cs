@@ -6,7 +6,7 @@ namespace FizzBuzzApplication
     {
         public static void Main()
         {
-            var fizzBuzzConsole = new FizzBuzzConsole();
+            var fizzBuzzConsole = new FizzBuzzConsole(new ConsoleWriter());
             fizzBuzzConsole.FizzBuzzStarter();
 
             Console.ReadLine();

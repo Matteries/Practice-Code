@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Moq;
 using FizzBuzzApplication;
 using NUnit.Framework;
 
@@ -12,7 +14,7 @@ namespace FizzBuzzApplicationTests
         [SetUp]
         public void Setup()
         {
-            _sut = new FizzBuzzConsole();
+            _sut = new FizzBuzzConsole(new ConsoleWriter());
         }
 
         [Test]
@@ -53,6 +55,15 @@ namespace FizzBuzzApplicationTests
             var buzzOutput = _sut.IsDivisibleByFive(testInput);
 
             Assert.That(expectedOutput, Is.EqualTo(buzzOutput));
+        }
+
+        [Test]
+        public void GivenOutput_IsOfValue(int testInput, bool expectedOutput)
+        {
+            var mockConsoleWriter = new Mock<IConsoleWriter>();
+            var sut = new FizzBuzzConsole(mockConsoleWriter.Object);
+
+            sut.FizzBuzzStarter();
         }
     }
 }
