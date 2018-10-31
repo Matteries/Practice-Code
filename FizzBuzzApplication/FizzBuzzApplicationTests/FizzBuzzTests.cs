@@ -36,9 +36,9 @@ namespace FizzBuzzApplicationTests
         [TestCase(3003, true)]
         public void GivenOutput_IsOfValue_Fizz(int testInput, bool expectedOutput)
         {
-            var fizzbuzzOutput = _sut.IsDivisibleByThree(testInput);
+            var fizzOutput = _sut.IsDivisibleByThree(testInput);
 
-            Assert.That(expectedOutput, Is.EqualTo(fizzbuzzOutput));
+            Assert.That(expectedOutput, Is.EqualTo(fizzOutput));
         }
 
         [Test]
@@ -50,9 +50,9 @@ namespace FizzBuzzApplicationTests
         public void GivenOutput_IsOfValue_Buzz(int testInput, bool expectedOutput)
         {
 
-            var fizzbuzzOutput = _sut.IsDivisibleByFive(testInput);
+            var buzzOutput = _sut.IsDivisibleByFive(testInput);
 
-            Assert.That(expectedOutput, Is.EqualTo(fizzbuzzOutput));
+            Assert.That(expectedOutput, Is.EqualTo(buzzOutput));
         }
     }
 }
