@@ -9,12 +9,15 @@ namespace FizzBuzzApplicationTests
     [TestFixture]
     public class FizzBuzzApplicationTests
     {
+        private Mock<IConsoleWriter> _consoleWriterMock;
         private FizzBuzzConsole _sut;
+
 
         [SetUp]
         public void Setup()
         {
-            _sut = new FizzBuzzConsole(new ConsoleWriter());
+            _consoleWriterMock = new Mock<IConsoleWriter>();
+            _sut = new FizzBuzzConsole(_consoleWriterMock.Object);
         }
 
         [Test]
@@ -58,12 +61,10 @@ namespace FizzBuzzApplicationTests
         }
 
         [Test]
-        public void GivenOutput_IsOfValue(int testInput, bool expectedOutput)
+        public void GivenOutput_IsOfValue()
         {
-            var mockConsoleWriter = new Mock<IConsoleWriter>();
-            var sut = new FizzBuzzConsole(mockConsoleWriter.Object);
-
-            sut.FizzBuzzStarter();
+            _sut.FizzBuzzStarter();
+            Assert.True(true);
         }
     }
 }
