@@ -2,38 +2,50 @@
 
 namespace FizzBuzzApplication
 {
-    internal class FizzBuzzConsole
+    public class FizzBuzzConsole
     {
-        private int fizz = 3;
-        private int buzz = 5;
-        private int fizzbuzz = 15;
+        private readonly int _fizz = 3;
+        private readonly int _buzz = 5;
+        private readonly int _fizzbuzz = 15;
 
         public void FizzBuzzStarter()
         {
-
             for (var i = 1; i <= 100; i++)
             {
+                Console.WriteLine("\n_____\n{0}", i);
 
-                var isDivisibleByThree = i % fizz == 0;
-                var isDivisibleByFive = i % buzz == 0;
-                var isDivisibleByFifteen = i % fizzbuzz == 0;
+                IsDivisibleByFifteen(i);
+                IsDivisibleByFive(i);
+                IsDivisibleByThree(i);
+            }
+        }
 
-                if (isDivisibleByFifteen)
-                {
-                    Console.WriteLine("Fizz Buzz");
-                }
-                else if (isDivisibleByThree)
-                {
-                    Console.WriteLine("Fizz");
-                }
-                else if (isDivisibleByFive)
-                {
-                    Console.WriteLine("Buzz");
-                }
-                else
-                {
-                    Console.WriteLine(i);
-                }
+        public bool IsDivisibleByFifteen(int i)
+        {
+            var isDivisibleByFifteen = i % _fizzbuzz == 0;
+            ConsoleChecker(isDivisibleByFifteen, "Fizz Buzz");
+            return isDivisibleByFifteen;
+        }
+
+        public bool IsDivisibleByFive(int i)
+        {
+            var isDivisibleByFive = i % _buzz == 0;
+            ConsoleChecker(isDivisibleByFive, "Buzz");
+            return isDivisibleByFive;
+        }
+
+        public bool IsDivisibleByThree(int i)
+        {
+            var isDivisibleByThree = i % _fizz == 0;
+            ConsoleChecker(isDivisibleByThree, "Fizz");
+            return isDivisibleByThree;
+        }
+
+        private void ConsoleChecker(bool check, string text)
+        {
+            if (check)
+            {
+                Console.WriteLine(text);
             }
         }
     }

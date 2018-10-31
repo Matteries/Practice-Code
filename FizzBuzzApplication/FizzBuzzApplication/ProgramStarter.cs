@@ -1,4 +1,6 @@
-﻿namespace FizzBuzzApplication
+﻿using System;
+
+namespace FizzBuzzApplication
 {
     public static class ProgramStarter
     {
@@ -6,6 +8,8 @@
         {
             var fizzBuzzConsole = new FizzBuzzConsole();
             fizzBuzzConsole.FizzBuzzStarter();
+
+            Console.ReadLine();
         }
     }
 }
