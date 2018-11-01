@@ -49,10 +49,6 @@
       <Project>{f96874b1-681d-4e2c-9325-4c76acdd64f4}</Project>
       <Name>TextScrubberDomain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TextScrubberTests\TextScrubberTests.csproj">
-      <Project>{c3bfbe78-6e30-4f6a-9897-4c58a13164d2}</Project>
-      <Name>TextScrubberTests</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

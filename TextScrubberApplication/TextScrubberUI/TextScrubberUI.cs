@@ -1,7 +1,7 @@
 ﻿using TextScrubberDomain;
 using System;
 
-namespace TextScrubberUI
+namespace TextScrubberUIProject
 {
     public class TextScrubberUI
     {

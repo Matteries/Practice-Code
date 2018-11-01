@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C3BFBE78-6E30-4F6A-9897-4C58A13164D2}</ProjectGuid>
-	<ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TextScrubberTests</RootNamespace>
@@ -54,9 +54,17 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ScrubberProgramStarter\ScrubberProgramStarter.csproj">
+      <Project>{50cba1d4-c09d-422f-8b4c-68d3ffa05f52}</Project>
+      <Name>ScrubberProgramStarter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TextScrubberApplication\TextScrubberDomain.csproj">
       <Project>{f96874b1-681d-4e2c-9325-4c76acdd64f4}</Project>
       <Name>TextScrubberDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextScrubberUI\TextScrubberUI.csproj">
+      <Project>{fd5f2f4e-8d39-410d-ad35-dd9bcce5966a}</Project>
+      <Name>TextScrubberUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

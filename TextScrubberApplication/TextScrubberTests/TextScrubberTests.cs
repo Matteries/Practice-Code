@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using TextScrubberDomain;
+using TextScrubberUIProject;
 
 namespace TextScrubberTests
 {
@@ -7,11 +8,13 @@ namespace TextScrubberTests
     public class TextScrubberTests
     {
         private TextScrubberLogic _sut;
+        private TextScrubberUI _uut;
 
         [SetUp]
         public void Setup()
         {
             _sut = new TextScrubberLogic();
+            _uut = new TextScrubberUI();
         }
 
         [Test]
@@ -23,6 +26,17 @@ namespace TextScrubberTests
         public void GivenOutput_DoesntContainAnyHTMLTags(string testInput, string expectedOutput)
         {
             Assert.That(expectedOutput, Is.EqualTo(_sut.StripHTMLTags(testInput)));
+        }
+
+        [Test]
+        public void GivenOutput_IsDivisibleByTen_ReturnsExpectedOutput()
+        {
+            //Arrange
+
+            //Act
+            _uut.RawUserInput();
+            //Assert
+            Assert.That(true, Is.EqualTo(divisibleOutput));
         }
     }
 }

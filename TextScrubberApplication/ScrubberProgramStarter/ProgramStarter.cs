@@ -1,12 +1,13 @@
 ﻿using System;
-using TextScrubberUI;
+using TextScrubberUIProject;
+
 namespace ScrubberProgramStarter
 {
     public static class ProgramStarter
     {
         public static void Main()
         {
-            var textScrubberConsole = new TextScrubberUI.TextScrubberUI();
+            var textScrubberConsole = new TextScrubberUI();
             textScrubberConsole.RawUserInput();
             Console.ReadLine();
         }
