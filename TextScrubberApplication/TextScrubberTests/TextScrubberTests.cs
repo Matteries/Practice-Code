@@ -27,16 +27,5 @@ namespace TextScrubberTests
         {
             Assert.That(expectedOutput, Is.EqualTo(_sut.StripHTMLTags(testInput)));
         }
-
-        [Test]
-        public void GivenOutput_IsDivisibleByTen_ReturnsExpectedOutput()
-        {
-            //Arrange
-
-            //Act
-            _uut.RawUserInput();
-            //Assert
-            Assert.That(true, Is.EqualTo(divisibleOutput));
-        }
     }
 }
