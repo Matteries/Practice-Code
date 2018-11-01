@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FizzBuzzApplication
+﻿namespace FizzBuzzApplication
 {
     public interface IConsoleWriter
     {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Moq;
+﻿using Moq;
 using FizzBuzzApplication;
 using NUnit.Framework;
 
@@ -61,7 +59,7 @@ namespace FizzBuzzApplicationTests
         }
 
         [Test]
-        public void GivenOutput_IsOfValue()
+        public void GivenOutput_IsOfATrueValue()
         {
             _sut.FizzBuzzStarter();
             Assert.True(true);
