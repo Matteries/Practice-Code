@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F96874B1-681D-4E2C-9325-4C76ACDD64F4}</ProjectGuid>
+    <ProjectGuid>{50CBA1D4-C09D-422F-8B4C-68D3FFA05F52}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TextScrubberApplication</RootNamespace>
-    <AssemblyName>TextScrubberApplication</AssemblyName>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ScrubberProgramStarter</RootNamespace>
+    <AssemblyName>ScrubberProgramStarter</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,13 +23,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -43,13 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BadUserInputData.cs" />
+    <Compile Include="ProgramStarter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextProgram.cs" />
-    <Compile Include="TextProgramHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\TextScrubberApplication\TextScrubberDomain.csproj">
+      <Project>{f96874b1-681d-4e2c-9325-4c76acdd64f4}</Project>
+      <Name>TextScrubberDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextScrubberTests\TextScrubberTests.csproj">
+      <Project>{c3bfbe78-6e30-4f6a-9897-4c58a13164d2}</Project>
+      <Name>TextScrubberTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TextScrubberUI\TextScrubberUI.csproj">
+      <Project>{fd5f2f4e-8d39-410d-ad35-dd9bcce5966a}</Project>
+      <Name>TextScrubberUI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

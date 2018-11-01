@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TextScrubberApplication
+namespace TextScrubberDomain
 {
     public class BadInputFilter
     {
@@ -12,11 +12,20 @@ namespace TextScrubberApplication
                 {
                     "<script>",
                     "</script>",
+                    "<h1>",
+                    "</h1>",
+                    "<h2>",
+                    "</h2>",
+                    "<h3>",
+                    "</h3>",
                     "</p>",
                     "<p>",
-                    "@",
-                    "+",
-                    "*"
+                    "<html>",
+                    "</html>",
+                    "<body>",
+                    "</body>",
+                    "<head>",
+                    "</head>"
                 };
             }
         }
