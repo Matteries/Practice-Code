@@ -1,0 +1,27 @@
+﻿@model List<MVCApplication.Models.UserInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Student Data</h2>
+
+<div><b>Table Formatting Student Data in a ForEach</b><br /></div>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Student ID</th>
+        <th>FullName</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+
+        <tr>
+            <td> @user.ID </td>
+            <td> @user.Name</td>
+            <td> @user.Email </td>
+            <td> @user.Number </td>
+        </tr>
+    }
+    </table>
