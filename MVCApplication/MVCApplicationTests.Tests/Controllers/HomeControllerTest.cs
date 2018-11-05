@@ -1,7 +1,9 @@
 ﻿using MVCApplication.Controllers;
 using NUnit.Framework;
 using System.Web.Mvc;
+using MVCApplication.Models;
 using Assert = NUnit.Framework.Assert;
+using System;
 
 namespace MVCApplicationTests.Tests.Controllers
 {
@@ -41,28 +43,47 @@ namespace MVCApplicationTests.Tests.Controllers
         }
 
         [Test]
-        [TestCase("Allan Cano", "Allan Cano")]
-        [TestCase("a.cano@outlook.co.uk", "a.cano@outlook.co.uk")]
-        [TestCase("07779 678735", "07779 678735")]
-        public void IndexReturnsStudentData(int testInput, bool expectedOutput)
-        {
-
-            // Act
-            var indexTableResults = _sut.Index(testInput);
-
-            // Assert
-            Assert.That(expectedOutput, Is.EqualTo(indexTableResults));
-        }
-
-        [Test]
-        public void AboutReturnsAValue()
+        public void AboutReturnsAViewBagMessage()
         {
 
             // Act
             ViewResult result = _sut.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Text MVC", result.ViewBag.Message);
+            Assert.AreEqual("MVC About", result.ViewBag.Message);
+        }
+
+        [Test]
+        public void Index_IsBeingSet_ByUserID()
+        {
+            int expected = new Random().Next();
+            var target = new UserInfo() { ID = expected };
+            Assert.AreEqual(expected, target.ID);
+        }
+
+        [Test]
+        public void Index_IsBeingSet_ByUserName()
+        {
+            var expected = new Random().Next().ToString();
+            var target = new UserInfo() { Name = expected };
+            Assert.AreEqual(expected, target.Name);
+        }
+
+        [Test]
+        public void Index_IsBeingSet_ByUserEmail()
+        {
+            var expected = new Random().Next().ToString();
+            var target = new UserInfo() { Email = expected };
+            Assert.AreEqual(expected, target.Email);
+        }
+
+        [Test]
+        public void Index_IsBeingSet_ByUserPhoneNumber()
+        {
+            var expected = new Random().Next().ToString();
+            var target = new UserInfo() { Number = expected };
+
+            Assert.AreEqual(expected, target.Number);
         }
     }
 }

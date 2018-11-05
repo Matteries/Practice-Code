@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using MVCApplication.Models;
 
@@ -21,6 +17,13 @@ namespace MVCApplication.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "MVC Index";
+            List<UserInfo> users = FormattingUsers();
+
+            return View(users);
+        }
+
+        private static List<UserInfo> FormattingUsers()
+        {
             var reader = new StreamReader(System.IO.File.OpenRead(@"E:\MVCDATA.csv"));
             var users = new List<UserInfo>();
 
@@ -41,13 +44,12 @@ namespace MVCApplication.Controllers
                         if (values.Length >= 4)
                         {
                             users.Add(new UserInfo
-                                {ID = int.Parse(values[0]), Name = values[1], Email = values[2], Number = values[3]});
+                            { ID = int.Parse(values[0]), Name = values[1], Email = values[2], Number = values[3] });
                         }
                     }
                 }
             }
-
-            return View(users);
+            return users;
         }
     }
 }
