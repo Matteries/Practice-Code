@@ -5,7 +5,7 @@ using MVCApplication.Models;
 using Assert = NUnit.Framework.Assert;
 using System;
 
-namespace MVCApplicationTests.Tests.Controllers
+namespace MVCApplicationTests.Controllers
 {
     [TestFixture]
     public class HomeControllerTest
