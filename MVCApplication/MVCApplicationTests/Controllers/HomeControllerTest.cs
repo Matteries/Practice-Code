@@ -1,4 +1,5 @@
-﻿using MVCApplication.Controllers;
+﻿using MVCApplication.Models;
+using MVCApplication.Controllers;
 using NUnit.Framework;
 using System.Web.Mvc;
 using Assert = NUnit.Framework.Assert;
@@ -20,7 +21,7 @@ namespace MVCApplicationTests.Controllers
         }
 
         [Test]
-        public void Index()
+        public void AssertsIf_IndexPage_Exists()
         {
 
             // Act
@@ -31,7 +32,7 @@ namespace MVCApplicationTests.Controllers
         }
 
         [Test]
-        public void IndexReturnsAValue()
+        public void Returns_IndexPage_ViewBagMessage()
         {
 
             // Act
@@ -42,7 +43,7 @@ namespace MVCApplicationTests.Controllers
         }
 
         [Test]
-        public void AboutReturnsAViewBagMessage()
+        public void Returns_AboutPage_ViewBagMessage()
         {
 
             // Act

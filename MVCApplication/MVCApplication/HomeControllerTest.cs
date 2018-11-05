@@ -1,7 +1,7 @@
 ﻿using MVCApplication.Controllers;
+using MVCApplication.Models;
 using NUnit.Framework;
 using System.Web.Mvc;
-using MVCApplication.Models;
 using Assert = NUnit.Framework.Assert;
 using System;
 
