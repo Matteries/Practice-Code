@@ -43,8 +43,7 @@ namespace MVCApplication.Controllers
                         var values = line.Split(',');
                         if (values.Length >= 4)
                         {
-                            users.Add(new UserInfo
-                            { ID = int.Parse(values[0]), Name = values[1], Email = values[2], Number = values[3] });
+                            users.Add(new UserInfo { ID = int.Parse(values[0]), Name = values[1], Email = values[2], Number = values[3] });
                         }
                     }
                 }
