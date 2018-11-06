@@ -54,7 +54,7 @@ namespace MVCApplicationTests.Controllers
         }
 
         [Test]
-        public void Index_IsBeingSetWith_UserID()
+        public void IndexPage_IsBeingSetWith_UserID()
         {
             var expected = new Random().Next();
             var target = new UserInfo() { ID = expected };
@@ -62,7 +62,7 @@ namespace MVCApplicationTests.Controllers
         }
 
         [Test]
-        public void Index_IsBeingSetWith_UserName()
+        public void IndexPage_IsBeingSetWith_UserName()
         {
             var expected = new Random().Next().ToString();
             var target = new UserInfo() { Name = expected };
@@ -70,7 +70,7 @@ namespace MVCApplicationTests.Controllers
         }
 
         [Test]
-        public void Index_IsBeingSetWith_UserEmail()
+        public void IndexPage_IsBeingSetWith_UserEmail()
         {
             var expected = new Random().Next().ToString();
             var target = new UserInfo() { Email = expected };
@@ -78,7 +78,7 @@ namespace MVCApplicationTests.Controllers
         }
 
         [Test]
-        public void Index_IsBeingSetWith_UserPhoneNumber()
+        public void IndexPage_IsBeingSetWith_UserPhoneNumber()
         {
             var expected = new Random().Next().ToString();
             var target = new UserInfo() { Number = expected };
