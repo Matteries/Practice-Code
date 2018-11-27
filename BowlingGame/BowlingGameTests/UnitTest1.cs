@@ -47,7 +47,7 @@ namespace BowlingGameTests
         }
 
         [Test]
-        public void RollSparesEveryFrame()
+        public void InstanceOf_SparesOnEveryFrame()
         {
             AmountOf_RollsIn_ASingleTurn(21, 5);
 
@@ -55,9 +55,9 @@ namespace BowlingGameTests
         }
 
         [Test]
-        public void RollPerfectGame()
+        public void InstanceOf_RollingAPerfectGame()
         {
-            AmountOf_RollsIn_ASingleTurn(12, 10)
+            AmountOf_RollsIn_ASingleTurn(12, 10);
 
             Assert.That(_sut.Score(), Is.EqualTo(300));
         }
