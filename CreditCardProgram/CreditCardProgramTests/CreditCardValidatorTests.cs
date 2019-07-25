@@ -1,68 +1,63 @@
-﻿using System.Linq;
-using CreditCardProgram;
+﻿using CreditCardProgram;
 using NUnit.Framework;
+using System;
 
 namespace CreditCardProgramTests
 {
     [TestFixture]
     public class CreditCardValidatorTests
     {
-        private CreditCardValidator _sut;
+        private CreditCardValidator _creditCardValidator;
 
         [SetUp]
         public void Setup()
         {
-            _sut = new CreditCardValidator();
+            //Arrange
+            _creditCardValidator = new CreditCardValidator();
         }
+
+        static TestCaseData[] ExpectedCreditCards = new TestCaseData[]
+        {
+            new TestCaseData( new CreditCardValidator(), 8473986074875837, 7868, "test")
+        };
 
         [Test]
-        [TestCase(0, false)]
-        [TestCase(3, true)]
-        [TestCase(8, false)]
-        [TestCase(11477, true)]
-        public void GivenValidNumber_IsOdd_ReturnsExpectedOutput(int testInput, bool expectedOutput)
+        public void WhenPassedChars_GivesIncorrectInput_ReturnsFalse()
         {
-            //Arrange
 
-            //Act
-            var actualOutput = _sut.IsOdd(testInput);
+            string cardNo = "";
+            bool b = _creditCardValidator.StartValidator(cardNo).Equals("test");
 
             //Assert
-            Assert.That(expectedOutput, Is.EqualTo(actualOutput));
+            Assert.AreEqual(false, b);
         }
 
-        [Test]
-        public void GivenOutput_IsDivisibleByTen_ReturnsExpectedOutput()
-        {
-            //Arrange
+        //[Test]
+        //public void GivenOutput_WhenDivisibleByTen_ReturnsExpectedOutput()
+        //{
+        //    //Act
+        //    var divisibleOutput = _creditCardValidator.CreditCardOutput(10);
 
-            //Act
-            var divisibleOutput = _sut.CreditCardOutput(10);
-            //Assert
-            Assert.That(true, Is.EqualTo(divisibleOutput));
-        }
+        //    //Assert
+        //    Assert.AreEqual(true, divisibleOutput);
+        //}
 
-        [Test]
-        public void GivenCardNumber_IsReversed_ReturnsExpectedOutput()
-        {
-            //Arrange
+        //[Test]
+        //public void GivenCardNumber_IsReversed_ReturnsExpectedOutput()
+        //{
+        //    //Act
+        //    var reversedOutput = _creditCardValidator.ReversedCardNumber("4118767832987690");
+        //    //Assert
+        //    Assert.That("0967892387678114".ToArray(), Is.EqualTo(reversedOutput.ToArray()));
+        //}
 
-            //Act
-            var reversedOutput = _sut.ReversedCardNumber("4118767832987690");
-            //Assert
-            Assert.That("0967892387678114".ToArray(), Is.EqualTo(reversedOutput.ToArray()));
-        }
-
-        [Test]
-        public void GivenCardNumber_IsEvenDoubled_ReturnsExpectedOutput()
-        {
-            //Arrange
-
-            //Act
-            var doubledOutput = _sut.GetEvenValue("4");
-            //Assert
-            Assert.That(8, Is.EqualTo(doubledOutput));
-        }
-
+        //[Test]
+        //public void GivenCardNumber_WhenEvenIsDoubled_ReturnsExpectedOutput()
+        //{
+        //    //Act
+        //    var doubledOutput = _creditCardValidator.GetEvenValue("4");
+        //    //Assert
+        //    Assert.AreEqual(8, doubledOutput);
+        //}
     }
 }

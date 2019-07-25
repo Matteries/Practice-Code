@@ -8,18 +8,37 @@ namespace CreditCardProgram
     {
         private int _oddValue;
         private int _evenValue;
+        private string cardNo;
 
-        public void CardNumberEntryMethod()
+        public void StartValidator()
         {
-                Console.WriteLine("Please enter your 16 digit credit card number below:");
-                var cardNumber = Console.ReadLine();
-                CardNumberPos(cardNumber);
-                ReversedCardNumber(cardNumber);
+            var cardNoValid = false;
+            while(!cardNoValid)
+            {
+                cardNo = GetCardNumber();
+                cardNoValid = IsCardNumberValid(cardNo);
+            }
+            CardNumberPos(cardNo);
+            ReversedCardNumber(cardNo);
         }
 
-        public IEnumerable<char> ReversedCardNumber(string cardNumber)
+        public bool IsCardNumberValid(string cardNo)
         {
-            return cardNumber.Reverse();
+            if (cardNo.Length != 16 || !cardNo.All(x => char.IsDigit(x)) || cardNo.All(y => y == 0))
+            {
+                Console.WriteLine("INFO: Credit card number must be 16 digits - try another credit card number!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private string GetCardNumber()
+        {
+                Console.WriteLine("Please submit your 16 digit credit card number below:");
+                return Console.ReadLine();
         }
 
         private void CardNumberPos(string reversedCardNumber)
@@ -30,29 +49,36 @@ namespace CreditCardProgram
             {
                 if (IsOdd(i + 1))
                 {
-                    _oddValue = _oddValue + int.Parse(toUse[i].ToString());
+                    _oddValue += int.Parse(toUse[i].ToString());
                 }
+
                 else
                 {
-                    _evenValue = _evenValue + GetEvenValue(toUse[i].ToString());
+                    _evenValue += GetEvenValue(toUse[i].ToString());
                 }
             }
 
             Console.WriteLine(CreditCardOutput(_oddValue + _evenValue));
         }
 
-        public int GetEvenValue(string inputNumber)
+        private IEnumerable<char> ReversedCardNumber(string cardNumber)
+        {
+            return cardNumber.Reverse();
+        }
+
+        private int GetEvenValue(string inputNumber)
         {
             var doubledValue = int.Parse(inputNumber) * 2;
             var evenTotal = doubledValue.ToString().Sum(c => c - '0');
             return evenTotal;
         }
 
-        public bool IsOdd(int value)
+        private bool IsOdd(int value)
         {
             return value % 2 != 0;
         }
-        public bool CreditCardOutput(int value)
+
+        private bool CreditCardOutput(int value)
         {
             if (value % 10 == 0)
 
@@ -63,7 +89,6 @@ namespace CreditCardProgram
             {
                 return false;
             }
-
         }
     }
 }
